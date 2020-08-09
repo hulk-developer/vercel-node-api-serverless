@@ -2,6 +2,6 @@
   "name": "vercel-node-api-serverless",
   "version": 2,
   "env": {
-    "MONGODB_URI": "@my-mongo-uri"
+    "MONGODB_URI": "@my-mongodb-uri"
   }
 }
