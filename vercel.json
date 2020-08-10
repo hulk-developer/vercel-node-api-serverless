@@ -6,7 +6,7 @@
   },
   "functions": {
     "api/users.js": {
-      "excludeFiles": "*(.env|package.json|yarn.lock|package-lock.json)"
+      "excludeFiles": ".env"
     }
   }
 }
