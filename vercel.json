@@ -3,5 +3,10 @@
   "version": 2,
   "env": {
     "MONGODB_URI": "@my-mongodb-uri"
+  },
+  "functions": {
+    "api/users.js": {
+      "excludeFiles": "*(.env|package.json|yarn.lock|package-lock.json)"
+    }
   }
 }
