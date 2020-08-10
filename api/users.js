@@ -1,5 +1,11 @@
 const mongoose = require("mongoose");
 
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
+
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
