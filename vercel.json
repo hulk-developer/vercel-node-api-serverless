@@ -17,5 +17,11 @@
       "destination": "https://twitter.com/webdevcaptain",
       "permanent": false
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/help",
+      "destination": "/api/test"
+    }
   ]
 }
