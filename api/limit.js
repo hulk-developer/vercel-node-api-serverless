@@ -1,5 +1,7 @@
 const { chain } = require("@amaurymartiny/now-middleware");
 
+const cors = require("cors");
+
 const rateLimit = require("express-rate-limit");
 const MongoStore = require("rate-limit-mongo");
 
@@ -11,6 +13,9 @@ const limiter = rateLimit({
     collectionName: "vercel-serverless-rate-limit",
     expireTimeMs: timeLimit,
   }),
+  keyGenerator: function (req) {
+    return req.headers["x-real-ip"];
+  },
   windowMs: timeLimit,
   max: 8,
   message: {
@@ -19,10 +24,10 @@ const limiter = rateLimit({
   },
 });
 
-const handler = (req, res) => {
+const handler = async (req, res) => {
   res.json({
     message: "Hi There.",
   });
 };
 
-module.exports = chain(limiter())(handler);
+module.exports = chain(cors(), limiter)(handler);
