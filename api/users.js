@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcryptjs = require("bcryptjs");
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -21,9 +22,10 @@ const userModel = mongoose.model("User", UserSchema);
 
 module.exports = async (req, res) => {
   try {
+    const password = await bcryptjs.hash(req.body.password, 8);
     const user = new userModel({
       username: req.body.username,
-      password: req.body.password,
+      password,
     });
 
     await user.save();

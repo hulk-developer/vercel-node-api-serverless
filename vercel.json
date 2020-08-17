@@ -8,5 +8,14 @@
     "api/users.js": {
       "excludeFiles": ".env"
     }
-  }
+  },
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/tweet",
+      "destination": "https://twitter.com/webdevcaptain",
+      "permanent": false
+    }
+  ]
 }
