@@ -14,6 +14,7 @@ const limiter = rateLimit({
     expireTimeMs: timeLimit,
   }),
   keyGenerator: function (req) {
+    console.log(req);
     return req.headers["x-real-ip"];
   },
   windowMs: timeLimit,
